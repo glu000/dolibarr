@@ -882,10 +882,10 @@ IMG;
 		{
 			if ($conf->global->IA_USE_WINDOWS)
 			{
-				$command = str_replace("/", "\\", $command);
+				$command = str_replace("/", "\\\\", $command);
 			}
-			exec ("dir", $output_arr, $retval);
-			//exec($command, $output_arr, $retval);
+			//exec ("dir", $output_arr, $retval);
+			exec($command, $output_arr, $retval);
 			print_r($output_arr);
 		}
 		if ($execmethod == 2)
