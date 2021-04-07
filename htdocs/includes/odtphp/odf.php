@@ -829,7 +829,7 @@ IMG;
 			{
 				$part2 = str_replace("/", "\\", $part2);
 			}
-			$command ='soffice --headless -env:UserInstallation=file:///C:/tmp --convert-to pdf --outdir '.$part2;
+			$command ='C:\\Program Files\\LibreOffice\\program\\soffice.com --headless -env:UserInstallation=file:///C:/tmp --convert-to pdf --outdir '.$part2;
 			//$command ='soffice --headless -env:UserInstallation=file:"//'.$conf->user->dir_temp.'" --convert-to pdf --outdir '. escapeshellarg(dirname($name)). " ".escapeshellarg($name);
 
 		}
