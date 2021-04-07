@@ -885,6 +885,7 @@ IMG;
 				$command = str_replace("/", "\\", $command);
 			}
 			exec($command, $output_arr, $retval);
+			print_r($output_arr);
 		}
 		if ($execmethod == 2)
 		{
