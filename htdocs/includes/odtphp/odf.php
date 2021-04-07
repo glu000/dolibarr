@@ -882,7 +882,7 @@ IMG;
 		{
 			if ($conf->global->IA_USE_WINDOWS)
 			{
-				str_replace("/", "\\", $command);
+				$command = str_replace("/", "\\", $command);
 			}
 			exec($command, $output_arr, $retval);
 		}
