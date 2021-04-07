@@ -824,7 +824,12 @@ IMG;
 			// using windows libreoffice that must be in path
 			// using linux/mac libreoffice that must be in path
 			// Note PHP Config "fastcgi.impersonate=0" must set to 0 - Default is 1
-			$command ='soffice --headless -env:UserInstallation=file:///C:/tmp --convert-to pdf --outdir '. escapeshellarg(dirname($name)). " ".escapeshellarg($name);
+			$part2 = escapeshellarg(dirname($name)). " ".escapeshellarg($name);
+			if ($conf->global->IA_USE_WINDOWS)
+			{
+				$part2 = str_replace("/", "\\", $part2);
+			}
+			$command ='soffice --headless -env:UserInstallation=file:///C:/tmp --convert-to pdf --outdir '.$part2;
 			//$command ='soffice --headless -env:UserInstallation=file:"//'.$conf->user->dir_temp.'" --convert-to pdf --outdir '. escapeshellarg(dirname($name)). " ".escapeshellarg($name);
 
 		}
@@ -880,11 +885,6 @@ IMG;
 		$retval=0; $output_arr=array();
 		if ($execmethod == 1)
 		{
-			if ($conf->global->IA_USE_WINDOWS)
-			{
-				$command = str_replace("/", "\\", $command);
-			}
-			//exec ("dir", $output_arr, $retval);
 			exec($command, $output_arr, $retval);
 			print_r($output_arr);
 		}
