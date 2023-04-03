@@ -1299,7 +1299,6 @@ $(document).ready(function() {
  *
  * TODO: Recheck with the select2 GH issue and remove once this is fixed on their side
  */
- // TI0314
 $(document).on('select2:open', (e) => {
 	console.log ("Workaround for select2 issue");
     const target = $(e.target);
